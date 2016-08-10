@@ -1,0 +1,14 @@
+	body{
+		margin: 0;
+	}
+	*{
+		box-sizing: border-box;
+	}
+	img{
+		border: none;
+	}
+	::selection{
+		background: #f40000;
+		color: #fff;
+	}
+			

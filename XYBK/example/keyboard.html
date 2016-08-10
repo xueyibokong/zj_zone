@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">	
+		<meta name="viewport" content="width=device-width,instial-scale=1.0,max-num-scale=1.0,user-scalable=no,target-densitydpi=medium=dpi">
+		<meta name="format-detection" content="telephone=no">
+		<title></title>
+		<script src="../js/jquery-2.1.4.min.js"></script>
+		<script src="../js/keyBoard.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/keyBoard.css"/>
+		<style type="text/css">
+			[keyboard="keyboard"],input{
+				width: 90%;
+				height: 35px;
+				margin: 10px auto;
+				display: block;
+				font-size: 15px;
+			}
+			[keyboard="keyboard"]:nth-of-type(2){
+				text-align: center;
+			}
+			[keyboard="keyboard"]:nth-of-type(3){
+				text-align: right;
+			}
+		</style>
+		<link rel="stylesheet" href="../css/animate.min.css" />
+	</head>
+	<body> 
+		<button id="button" type="button" style="width: 90%;margin:0 auto;display: block;height: 35px;">add</button>
+		<input type="text" placeholder="这是真正的input">
+		
+		
+		<div class="moble" keyboard="keyboard" keyboard-type="number" placeholder="请输入手机号" maxlength="11" thevalue="123"></div>
+		<div class="pass" keyboard="keyboard" keyboard-type="password" placeholder="请输入密码" maxlength="6" thevalue=""></div>
+		
+		
+	</body>
+</html>
+<script type="text/javascript">
+$(function(){
+	/* 入口方法
+	 * 1>> window.keyBoard_ready(function(){
+	 * 	     执行方法；
+	 * 	   })
+	 * 2>> window.keyBoard_ready();
+	 * 	   执行方法；
+	 * 
+	 * */
+	window.keyBoard_ready();
+		/*
+		 * jquery元素获得焦点事件            		 keyBoardFocus
+		 * 1>> 没有有参数的时候,该元素获得焦点；
+		 * 2>> 有且只有一个参数时（function（）{}），该元素获得焦点时所执行的回调；
+		 * 
+		 * */
+		$(".moble").keyBoardFocus(function(){
+			// console.log($(this));
+			console.log("获得焦点后的回调");
+			console.log($(this).handleValue());
+		});
+		/*
+		 * jquery元素失去焦点事件            		  keyBoardBlur
+		 * 1>> 没有有参数的时候,该元素失去焦点；
+		 * 2>> 有且只有一个参数时（function（）{}），该元素失去焦点时所执行的回调；
+		 * 
+		 * */
+		$(".moble").keyBoardBlur(function(){
+			console.log("失去焦点后的回调");
+			console.log($(this).handleValue());
+		}); 
+		/*
+		 * jquery元素内容改变事件            		  keyBoardBlur
+		 * 
+		 * 1>> 有且只有一个参数（function（a，b）{}），该元素内容改变时所执行的回调；
+		 * 	   该回调函数返回两个参数 a ：为当前输入的值；
+		 * 					 		b : 为输入框中的值
+		 * 
+		 * */
+		$(".moble").keyValueChange(function(theinput,value){
+			console.log(theinput+"--"+value);
+		});
+		$(".pass").keyValueChange(function(theinput,value){
+			console.log(theinput+"--"+value);
+		})
+		/*
+		 * jquery元素出始值获取设置            		 inputValue
+		 * 
+		 * 1>> 没有有参数的时候,返回该元素的value值；
+		 * 2>> 有且只有一个参数时（string），则为该元素设置值；
+		 * 
+		 * */
+		// $(".moble").inputValue();
+		
+		
+		 /*
+		 * 当键盘done键按下触发的回调函数
+		 * 
+		 * 1>> 有且只有一个参数时（function（）{}），回调函数返回输入框的值
+		 * 
+		 * */
+   	    $(".pass").send(function(data){
+	    	    console.log("这是点击done按钮后的回调函数返回的值"+data);
+	    });
+		
+		/*  新建的输入框方法调用 						newInput
+		 * 【为了兼容ios不能为body以上对象click问题，因此动态创建<div keyboard="keyboard">需要用一下方法】
+		 * 
+		 *  该方法接收一个json对象
+		 *  json = {
+		 * 		keyboardType   :    "输入框类型", 	【目前仅支持number、password两种】
+			 	placeholder    :    "请输入手机号",	【未输入文本前的提示语】
+			 	maxlength 	    :	 "12"			【输入文本的长度】
+		 *  }
+		 * 
+		 */
+		var myInput = window.newInput({
+			 					 keyboardType   :    "password",
+			  					 placeholder    :    "请输入密码",
+			  					 maxlength 	    :	 "12",
+			  					 thevalue		:	 "1000.00"
+			                 },"body");
+		   myInput.keyBoardFocus(function(){
+		   		console.log($(this).handleValue());
+		   });
+		   myInput.keyBoardBlur(function(){
+		   		console.log($(this).handleValue());
+		   });
+		   myInput.keyValueChange(function(theinput,value){
+				console.log(theinput+"--"+value);
+		   });
+		   
+		//	keyBoard 事件	  
+		/*
+		 *	$.keyBoard.show();键盘呼出
+		 *  $.keyBoard.hide();键盘收起
+		 * */
+		// setTimeout(function(){
+			// $.keyBoard.show();
+			// setTimeout(function(){
+				// $.keyBoard.hide();
+			// },1000)
+		// },2000)
+		
+		
+		
+		
+		//   动态添加输入框
+		$("#button").click(function(){
+			window.newInput({
+			 					 keyboardType   :    "number",
+			  					 placeholder    :    "请输入手机号",
+			  					 maxlength 	    :	 "12",
+			  					 thevalue 			:	 "100000.00"
+			                 },"body");
+		});
+})
+</script>
+
+
+

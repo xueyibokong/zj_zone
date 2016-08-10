@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>浮动</title>
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<style>
+		html,body{
+			height: 100%;
+		}
+		body{
+			margin: 0;
+			-webkit-perspective:800;
+			-moz-perspective:800;
+			perspective:800;
+			background: #333;
+			overflow: hidden;
+		}
+		.page-div{
+			position: relative;
+			width: 100%;
+			height: 100%;
+			transform-style:preserve-3d ;
+			transform-origin: 50% 0 0;
+			transform: rotateY(0deg);
+			-webkit-animation: rotate 14s infinite;
+			animation: rotate 14s infinite;
+		}
+		.page{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left:0;
+			top:0;
+			transform-style: preserve-3d;
+			transform-origin:50% 0 0;
+			overflow-y: scroll;
+		}
+		.page1{
+			/*background:#09C10B;*/
+			transform: translateZ(-100px);
+		}
+		.page2{
+			/*background:#9E9E9E;*/
+		}
+		.page3{
+			/*background:#CF4C0D;*/
+			transform: translateZ(100px);
+		}
+		.page>img{
+			float: left;
+		}
+		.page1>img{
+			width: 20%;
+			margin-left: 5%;
+		}
+		.page2>img{
+			width: 25%;
+			margin-left: 6%;
+		}
+		.page3>img{
+			width: 35%;
+			margin-left: 10%;
+		}
+		
+		
+		
+		@-webkit-keyframes rotate{
+			from{
+				transform : rotateY(0deg)
+			}
+			80%{
+				transform : rotateY(0deg)
+			}
+			to{
+				transform : rotateY(360deg)
+			}
+		}
+		@keyframes rotate{
+			from{
+				transform : rotateY(0deg)
+			}
+			80%{
+				transform : rotateY(0deg)
+			}
+			to{
+				transform : rotateY(360deg)
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="page-div">
+		<div class="page page1">
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+			<img src="./img/parallax-img1.jpg" alt="" />
+		</div>
+		<div class="page page2">
+			<img src="./img/4e30729b38801d5bb894cf4c04a25199.jpg" alt="" />
+			<img src="./img/4e30729b38801d5bb894cf4c04a25199.jpg" alt="" />
+			<img src="./img/4e30729b38801d5bb894cf4c04a25199.jpg" alt="" />
+			<img src="./img/4e30729b38801d5bb894cf4c04a25199.jpg" alt="" />
+			<img src="./img/4e30729b38801d5bb894cf4c04a25199.jpg" alt="" />
+			<img src="./img/4e30729b38801d5bb894cf4c04a25199.jpg" alt="" />
+			<img src="./img/4e30729b38801d5bb894cf4c04a25199.jpg" alt="" />
+			<img src="./img/4e30729b38801d5bb894cf4c04a25199.jpg" alt="" />
+			<img src="./img/4e30729b38801d5bb894cf4c04a25199.jpg" alt="" />
+			<img src="./img/4e30729b38801d5bb894cf4c04a25199.jpg" alt="" />
+			<img src="./img/4e30729b38801d5bb894cf4c04a25199.jpg" alt="" />
+			<img src="./img/4e30729b38801d5bb894cf4c04a25199.jpg" alt="" />
+			<img src="./img/4e30729b38801d5bb894cf4c04a25199.jpg" alt="" />
+			<img src="./img/4e30729b38801d5bb894cf4c04a25199.jpg" alt="" />
+			<img src="./img/4e30729b38801d5bb894cf4c04a25199.jpg" alt="" />
+			<img src="./img/4e30729b38801d5bb894cf4c04a25199.jpg" alt="" />
+			<img src="./img/4e30729b38801d5bb894cf4c04a25199.jpg" alt="" />
+			<img src="./img/4e30729b38801d5bb894cf4c04a25199.jpg" alt="" />
+			<img src="./img/4e30729b38801d5bb894cf4c04a25199.jpg" alt="" />
+			<img src="./img/4e30729b38801d5bb894cf4c04a25199.jpg" alt="" />
+		</div>
+		<div class="page page3">
+			<img src="./img/f6c40750b83145f108b2cf475a956205.jpg" alt="" />
+			<img src="./img/f6c40750b83145f108b2cf475a956205.jpg" alt="" />
+			<img src="./img/f6c40750b83145f108b2cf475a956205.jpg" alt="" />
+			<img src="./img/f6c40750b83145f108b2cf475a956205.jpg" alt="" />
+			<img src="./img/f6c40750b83145f108b2cf475a956205.jpg" alt="" />
+			<img src="./img/f6c40750b83145f108b2cf475a956205.jpg" alt="" />
+			<img src="./img/f6c40750b83145f108b2cf475a956205.jpg" alt="" />
+			<img src="./img/f6c40750b83145f108b2cf475a956205.jpg" alt="" />
+			<img src="./img/f6c40750b83145f108b2cf475a956205.jpg" alt="" />
+			<img src="./img/f6c40750b83145f108b2cf475a956205.jpg" alt="" />
+			<img src="./img/f6c40750b83145f108b2cf475a956205.jpg" alt="" />
+			<img src="./img/f6c40750b83145f108b2cf475a956205.jpg" alt="" />
+			<img src="./img/f6c40750b83145f108b2cf475a956205.jpg" alt="" />
+			<img src="./img/f6c40750b83145f108b2cf475a956205.jpg" alt="" />
+			<img src="./img/f6c40750b83145f108b2cf475a956205.jpg" alt="" />
+			<img src="./img/f6c40750b83145f108b2cf475a956205.jpg" alt="" />
+			<img src="./img/f6c40750b83145f108b2cf475a956205.jpg" alt="" />
+			<img src="./img/f6c40750b83145f108b2cf475a956205.jpg" alt="" />
+			<img src="./img/f6c40750b83145f108b2cf475a956205.jpg" alt="" />
+			<img src="./img/f6c40750b83145f108b2cf475a956205.jpg" alt="" />
+		</div>
+	</div>
+	
+</body>
+</html>
+<script>
+	$(function(){
+		var speed = 0.1;
+		$(".page").each(function(index,obj){
+			setInterval(function(){
+				obj.theTop = $(obj).scrollTop();
+				$(obj).scrollTop((obj.theTop + (speed*index/10+1)));
+			},1000/60);
+		}).css({
+			"padding-top":function(){
+				return $("body").height()+"px"
+			}
+		});
+		$(".page>img").css({
+			"margin-top":function(){
+				this.num =  Math.random();
+				return this.num*100+"%"
+			}
+		});
+	})
+</script>

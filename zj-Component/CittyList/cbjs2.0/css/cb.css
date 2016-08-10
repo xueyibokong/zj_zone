@@ -1,0 +1,144 @@
+body,html {
+    overflow: hidden
+}
+
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+    text-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0
+}
+
+:focus {
+    outline: 0
+}
+
+input,textarea {
+    -webkit-touch-callout: auto;
+    -webkit-appearance: none;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: auto;
+    user-select: auto
+}
+
+html {
+    height: 100%
+}
+
+body {
+    -webkit-text-size-adjust: none;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    visibility: visible;
+    z-index: 0
+}
+
+.fw-browser-header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background: #FFF
+}
+
+.fw-page-content {
+    position: absolute;
+    width: 100%;
+    font-size: 15px;
+    color: #3c3c3c;
+    padding-top: 67px !important;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 100;
+    -webkit-overflow-scrolling: touch;
+    background:#f0f0f0
+}
+
+.fw-browser-footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    background: #FFF
+}
+
+.fw-page-current {
+    position: relative;
+    z-index: 500
+}
+
+* html .fw-browser-footer,* html .fw-browser-header {
+    position: absolute;
+    left: expression(eval(document.documentElement.scrollLeft))
+}
+
+.margin-zero {
+    margin: 0!important
+}
+
+.fw-loading-img {
+    width: 16px;
+    height: 16px;
+    background: url(../image/system/wait.gif)
+}
+
+.fw-i-img {
+    width: 2px;
+    height: 20px;
+    background: url(../image/system/i.gif);
+    margin-top: -5px
+}
+
+.fw-lock-img {
+    float: right;
+    height: 20px;
+    background: url(../image/system/lock.png)
+}
+
+.fw-password-div {
+    border: 2px solid #999;
+    border-right-color: #eee;
+    border-bottom-color: #eee;
+    padding: 2px 0;
+    margin: 2px 0
+}
+
+.fw-placeholder {
+    position: absolute;
+    left: 2px;
+    color: #999;
+    display: none
+}
+
+* html,* html body {
+    background-image: url(about:blank);
+    background-attachment: fixed
+}
+
+* html .fw-browser-header {
+    top: expression(eval(document.documentElement.scrollTop))
+}
+
+* html .fw-browser-footer {
+    top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)))
+}
+
+* html .tab-pane {
+    color: #000!important
+}

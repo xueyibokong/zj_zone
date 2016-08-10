@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>404 访问出错了！</title>
+		<style>
+			@media screen and (max-width:320px) {
+			    html{
+			        font-size:75%;
+			    }
+			}
+			@media screen and (min-width:375px) {
+			    html{
+			        font-size:90%;
+			    }
+			}
+			@media screen and (min-width:414px) {
+			    html{
+			        font-size:100%;
+			    }
+			}
+			@media all and (orientation : landscape) { 
+				/*//横屏:landscape    竖屏portrait*/
+				button{
+					display: none;
+				}
+			} 
+			*{
+				-webkit-backface-visibility:hidden
+			}
+			body{
+				margin: 0;
+				background: #666;
+				font-family: arial;
+				color: #d94c4f;
+				text-align: center;
+				perspective: 1000;
+			}
+			.text{
+				width: 100;
+				height: 30%;
+				font-size: 11rem;
+/*				text-shadow:10px 10px 13px rgba(0,0,0,.5);*/
+				border-bottom: 1px solid #444;
+				position: relative;
+				transform-style:preserve-3d;
+				transform-origin: top;
+				transform:rotateX(180deg) ;
+			}
+			.text>p{
+				font-size: 1.1rem;
+				background: #666666;
+				margin: 0;
+				/*text-shadow: 0 0 0 #fff;*/
+				position: absolute;
+				top: 35%;
+				right: 10%;
+				letter-spacing: 1px;
+			}
+			.c-text{
+				width: 100%;
+				font-size: 1.3rem;
+				line-height: 4;
+				border-top:1px solid #888;
+				border-bottom: 1px solid #444;
+				position: absolute;
+				margin-top: 1px;
+				transform-style:preserve-3d;
+				transform-origin: top;
+				transform:rotateX(180deg) ;
+				
+			}
+			.m-text{
+				width: 100%;
+				background: #666;
+				font-size: 1.1rem;
+				line-height: 4;
+				border-top:1px solid #888;
+				color: #9E9E9E;
+				position: absolute;
+				margin-top: 1px;
+				transform-style:preserve-3d;
+				transform-origin: top;
+				transform:rotateX(180deg) ;
+				
+			}
+			.text:before,.text:after,.c-text:before,.c-text:after{
+				content: "";
+				display: block;
+				width: 8px;
+				height: 14px;
+				background: -webkit-linear-gradient(#888,#555);
+				background: linear-gradient(#888,#555);
+				position: absolute;
+				left: 20%;
+				bottom:-9px;
+				border-radius: 2xpx;
+				box-shadow: 0px 0px 3px #2F2F2F;
+				z-index: 3;
+			}
+			.text:after,.c-text:after{
+				left: 80%;
+			}
+			.back{
+				width: 80%;
+				height: 36px;
+				padding: 0;
+				font-size: 16px;
+				color: #D94C4F;
+				letter-spacing: 2px;
+				font-weight: 600;
+				border: 1px solid #D94C4F;
+				position: fixed;
+				bottom: 10%;
+				left:10%;
+				outline: none;
+				border-radius: 3px;
+				background: none;
+			}
+			.back:active{
+				background: rgba(217,76,79,0.85);
+				color: #666;
+			}
+			@-webkit-keyframes rotate{
+				from{transform:rotateX(180deg) ;}
+				to{transform:rotateX(0deg) ;}
+			}
+			@keyframes rotate{
+				from{transform:rotateX(180deg) ;}
+				to{transform:rotateX(0deg) ;}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="text">
+			404
+			<p>The page not found</p>
+			<div class="c-text">
+				哎呀！页面找不到了！
+				<div class="m-text">详情请咨询   <span style="color: #D94C4F;">95558</span> ！</div>
+			</div>
+		</div>
+		<button class="back">返回首页</button>
+	</body>
+</html>
+<script type="text/javascript">
+	/*
+ * 内部调用函数
+ */
+//监听过度事件的兼容函数  transiion
+	var transitionEvent = whichTransitionEvent();//监听
+	function whichTransitionEvent(){
+        var t;
+        var el = document.createElement('fakeelement');
+        var transitions = {
+          'transition':'transitionend',
+          'OTransition':'oTransitionEnd',
+          'MozTransition':'transitionend',
+          'WebkitTransition':'webkitTransitionEnd',
+          'MsTransition':'msTransitionEnd'
+        }
+
+        for(t in transitions){
+            if( el.style[t] !== undefined ){
+                return transitions[t];
+            }
+        }
+    }
+	
+   window.onload = function(){
+	   	var Text = document.getElementsByClassName("text")[0];
+		var CText = document.getElementsByClassName("c-text")[0];
+		var MText = document.getElementsByClassName("m-text")[0];
+		Text.style.cssText = "-webkit-transition:0.5s cubic-bezier(0.56, 1.71, 0.57, 0.88);transition:0.5s cubic-bezier(0.56, 1.71, 0.57, 0.88);transform:rotateX(0deg)";
+		Text.addEventListener(transitionEvent,function(){
+			CText.style.cssText = "-webkit-transition:0.5s cubic-bezier(0.56, 1.71, 0.57, 0.88);transition:0.5s cubic-bezier(0.56, 1.71, 0.57, 0.88);transform:rotateX(0deg)";
+			CText.addEventListener(transitionEvent,function(){
+				MText.style.cssText = "-webkit-transition:0.5s cubic-bezier(0.56, 1.71, 0.57, 0.88);transition:0.5s cubic-bezier(0.56, 1.71, 0.57, 0.88);transform:rotateX(0deg)";
+			})
+		})
+   }
+	
+</script>

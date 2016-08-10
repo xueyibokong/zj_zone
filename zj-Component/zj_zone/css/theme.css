@@ -1,0 +1,126 @@
+html,body{
+    font-family: arial;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    overflow: hidden;
+}
+*{
+    box-sizing: border-box;
+}
+.outer-body{
+    width: 100%;
+    height: 100%;
+    background: #000;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    -webkit-perspective:1000px;
+    perspective: 1000px;
+}
+.body-box{
+    width: 300%;
+    height: 100%;
+}
+.inner-body{
+    width: 33.33333%;
+    height: 100%;
+    background: #fefefe;
+    float: left;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: all .2s;
+}
+.btn-box{
+    width: 34px;
+    position: fixed;
+    z-index: 1000;
+    left:15px;
+    top:0;
+}
+.body-tab-btn{
+    width: 100%;
+    height: 34px;
+    border-radius: 4px;
+    background: #444;
+    color: #fff;
+    margin-top: 15px;
+    line-height: 34px;
+    text-align: center;
+    transition: all .2s;
+    cursor: pointer;
+}
+/*类型1*/
+.body-tab-btn.btn-one.body-tab-btn-down{
+    background-color: #ddd;
+    color: #333;
+}
+.body-box.arrange{
+    transform: translateZ(-300px);
+    transform-style: preserve-3d;
+
+}
+.body-box.arrange>.inner-body{
+    width: 32.3333%;
+    margin-left: 0.7%;
+}
+/*类型2*/
+.body-tab-btn.btn-two{
+    top:54px;
+}
+.body-tab-btn.btn-two.body-tab-btn-down{
+    background-color: #ddd;
+    color: #333;
+}
+.body-box.pile-on{
+    position: relative;
+    width: 100%;
+    transform: translateZ(-300px);
+    transform-style: preserve-3d;
+
+}
+.body-box.pile-on>.inner-body{
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    box-shadow: 0 0 20px #333;
+}
+.body-box.pile-on>.inner-body:nth-of-type(2){
+    width: 90%;
+    top:10%;
+    z-index: 2
+}
+.body-box.pile-on>.inner-body:nth-of-type(3){
+    width: 100%;
+    top:20%;
+    z-index: 3
+}
+/*类型3*/
+.body-tab-btn.btn-three{
+    top:54px;
+}
+.body-tab-btn.btn-three.body-tab-btn-down{
+    background-color: #ddd;
+    color: #333;
+}
+.body-box.line-list{
+    position: relative;
+    width: 100%;
+    transform: translateZ(-300px);
+    transform-style: preserve-3d;
+
+}
+.body-box.line-list>.inner-body{
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    box-shadow: 0 0 20px #333;
+}
