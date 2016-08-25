@@ -361,6 +361,9 @@
 				 thevalue		:	 ""	
 			},attrObj);
 			var 	inputDiv = $('<div keyboard="keyboard" keyboard-type="'+attrObj.keyboardType+'" placeholder="'+attrObj.placeholder+'" maxlength="'+attrObj.maxlength+'" thevalue="'+attrObj.thevalue+'" ></div>');
+			if(attrObj.keyboardType == "password"){
+				inputDiv = $('<div keyboard="keyboard" keyboard-type="'+attrObj.keyboardType+'" placeholder="'+attrObj.placeholder+'" maxlength="'+attrObj.maxlength+'" ></div>');
+			}
 			inputDiv.appendTo(appendParent);
 			_allInputAddEvent ();
 			return inputDiv;
@@ -380,7 +383,9 @@
 				obj.blurCallback = obj.blurCallback || function(){};
 				obj.keyValueChange = obj.keyValueChange || function(input,thevalue){};
 				obj.sendCallback = obj.sendCallback || function(thedata){};
-				$(obj).html(obj.inputValue);
+				if(!($(obj).attr("keyboard-type") == "password")){
+					$(obj).text(obj.inputValue);
+				}
 			});
 			$('[keyboard="keyboard"]').on("click",function(e){
 				if($(this).get(0).isfocus == false){
