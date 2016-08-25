@@ -5,24 +5,16 @@
 //随机取出基础字符串【basisStr】中的9个不同的字符串【moleculeStr】
 	var basisStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 	var basisArr = basisStr.split("");
-	var moleculeStr = "";											//截取到的拼接字符串【需要上送到后台】
-	var tenmporary = "";												//当前截取到的字符串
-	// for (var m = 0; m < basisArr.length; m++) {
-	// 	tenmporary = basisArr[Math.floor(Math.random()*basisArr.length)];
-	// 	if(moleculeStr.indexOf(tenmporary) == -1){
-	// 		moleculeStr += tenmporary;
-	// 	}
-	// 	if(moleculeStr.length === 10){
-	// 		break;
-	// 	}
-	// }
+	window.moleculeStr = "";											//截取到的拼接字符串【需要上送到后台】
+	var tenmporary = "";											//当前截取到的字符串
+	
 	for (var m = 0; m < 10; m++) {
 		tenmporary = basisArr[Math.floor(Math.random()*basisArr.length)];
 		basisArr.splice(basisArr.indexOf(tenmporary),1);
 		moleculeStr += tenmporary;
 	}
-	console.log(moleculeStr+"---"+moleculeStr.length);
-	//设置一个全局对象用来初始化焦点对象
+	console.log(moleculeStr+"-----"+moleculeStr.length);
+	//设置一个全局对象用来初始化焦点对象 
 	var emptyElement = $("<div keyboard='keyboard'></div>");
 		emptyElement.get(0).isfocus = false;
 		emptyElement.get(0).focusCallback = function(){};
@@ -58,7 +50,7 @@
 			+'</div>'
 		+'</div>'
 	);
-
+	
 	keyBoardDom.appendTo("html");
 	setTimeout(function(){
 		keyBoardDom.css("bottom","-"+keyBoardDom.height()+"px");
@@ -81,9 +73,9 @@
 	/*	************************
 	 *	键盘DOM事件添加
 	 *  用在pc端存在一个bug就是当点击键盘后再移动鼠标事件对象就会发生改变因此会出现取值不准确问题【移动端不存在】
-	 *
+	 *  
 	 *  因为键盘是用在移动端的所以这里的click事件是为了更好的在pc端调试所以此bug可以忽略
-	 *
+	 *  
 	 * ***********************/
 	keyBoardDom.on("click",function(e){
 		if(_that._isNumberInput()){
@@ -98,7 +90,7 @@
 			}else {
 				if($(e.target).hasClass("delete-btn")){
 					if(keyValue.length == 0){
-						return false;
+						return false; 
 					}
 					keyValue.pop();								//获取按键值
 					keyValue = keyValue.join("");				//存值数组转字符串
@@ -129,12 +121,12 @@
 			}else {
 				if($(e.target).hasClass("delete-btn")){
 					if(keyValue.length == 0){
-						return false;
+						return false; 
 					}
 					keyValue.pop();														//获取按键值
 					keyValue = keyValue.join("");										//存值数组转字符串
-					_that.text(_that.text().substr(0,_that.text().length-1));				//键盘显示值
-					_that.handleValue(keyValue);											//每次输入都去重新为当前对象重新赋值
+					_that.text(_that.text().substr(0,_that.text().length-1));			//键盘显示值
+					_that.get(0).inputValue = keyValue;									//每次输入都去重新为当前对象重新赋值
 					keyValue = keyValue.split("");										//重新转化成数组
 				}else{
 					if(keyValue.length >= _that.attr("maxlength")){
@@ -143,7 +135,7 @@
 					keyValue.push($(e.target).data("num"));								//获取按键值
 					keyValue = keyValue.join("");										//存值数组转字符串
 					_that.text(_that.text() + "*");										//键盘显示值
-					_that.handleValue(keyValue);											//每次输入都去重新为当前对象重新赋值
+					_that.get(0).inputValue = keyValue									//每次输入都去重新为当前对象重新赋值
 					keyValue = keyValue.split("");										//重新转化成数组
 				};
 				_that.get(0).keyValueChange($(e.target).data("num"),keyValue.join(""));
@@ -209,9 +201,9 @@
 	/*
 	 * @ name 						json合并
 	 * @ param obj1，obj2			接收两个个json参数
-	 *
+	 * 
 	 * 	 函数返回obj1，是obj2中覆盖obj1中的相同的键值并把obj2新键值追加到obj1中
-	 *
+	 * 
 	 * */
 	function _extend (obj1,obj2){
 		for(x in obj1){
@@ -238,7 +230,7 @@
 			if(arguments.length == 0){
 				//焦点对象获得焦点并使_that（之前的焦点元素）失去焦点
 				_that.get(0).blurCallback();
-				_that.keyBoardBlur();
+				_that.keyBoardBlur();						
 				$(this).get(0).isfocus = true;
 				_that = $(this);
 				//取出当前获得焦点个元素的值并存入keyValue中
@@ -259,7 +251,7 @@
 				//回调函数执行
 				$(this).get(0).focusCallback = callback;
 			};
-
+			
 		},
 		keyBoardBlur : function(callback){
 			//失去焦点
@@ -334,10 +326,10 @@
 	/* ***************************************
 	 * keyBoard_ready(function(){		入口函数在页面加载完毕执行
 	 * 		对输入框操作的函数
-	 * })
+	 * })  						 	 
 	 * 对象(div[keyboard="keyboard"]) 上挂载的事件
 	 * jQuery元素对象插件拓展
-	 *
+	 * 
 	 * 为了兼容由于ios safari 对body的click事件不主动响应引起的事件委派问题;
 	 * 如果需要要实现脚本动态添加<div keyboard='keyboard'></div>；
 	 * 进行如下操作:
@@ -356,8 +348,8 @@
 		 *                }
 		 *	 2>> appendParent				元素索要插入的容器【接收容器的css选择器】
 		 * 									不传默认为body
-		 *
-		 *
+		 * 
+		 * 
 		 * 	 eg : var input2 = window.newInput({},"body");
 		 * ***************/
 		window.newInput = function(attrObj,appendParent){
@@ -366,14 +358,14 @@
 				 keyboardType   :    "password",
 				 placeholder    :    "",
 				 maxlength 	    :	 "",
-				 thevalue		:	 ""
+				 thevalue		:	 ""	
 			},attrObj);
 			var 	inputDiv = $('<div keyboard="keyboard" keyboard-type="'+attrObj.keyboardType+'" placeholder="'+attrObj.placeholder+'" maxlength="'+attrObj.maxlength+'" thevalue="'+attrObj.thevalue+'" ></div>');
 			inputDiv.appendTo(appendParent);
 			_allInputAddEvent ();
 			return inputDiv;
 		};
-
+		
 		/*	*******
 		 *  为页面中所有<div keyboard='keyboard'></div>元素添加此插件支持方法
 		 *	作用主要用于为动态创建的<div keyboard='keyboard'></div>元素添加此插件支持方法
@@ -401,7 +393,7 @@
 		_allInputAddEvent ();
 		/*	*********
 		 *  输入框失去焦点操作
-		 *
+		 *	
 		 * **********/
 		$(document).on("click",function(e){
 			if(_that.get(0).isfocus == true){
@@ -413,11 +405,8 @@
 		});
 		//入口回调函数
 		readyCallback = readyCallback || function (){};
-		setTimeout(function(){
-			readyCallback();
-		},2);
-
-
-	};//>>> 入口函数end
+		readyCallback();
+	};//>>> 入口函数end 
 	window.keyBoard_ready = keyBoard_ready;
+	keyBoard_ready();
 })(jQuery)

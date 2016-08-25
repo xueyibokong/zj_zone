@@ -20,11 +20,10 @@
 			[keyboard="keyboard"]:nth-of-type(2){
 				text-align: center;
 			}
-			[keyboard="keyboard"]:nth-of-type(3){
+			[keyboard="keyboard"]:nth-of-type(1){
 				text-align: right;
 			}
 		</style>
-		<link rel="stylesheet" href="../css/animate.min.css" />
 	</head>
 	<body> 
 		<button id="button" type="button" style="width: 90%;margin:0 auto;display: block;height: 35px;">add</button>
@@ -34,7 +33,7 @@
 		<div class="moble" keyboard="keyboard" keyboard-type="number" placeholder="请输入手机号" maxlength="11" thevalue="123"></div>
 		<div class="pass" keyboard="keyboard" keyboard-type="password" placeholder="请输入密码" maxlength="6" thevalue=""></div>
 		
-		
+		<div class="aa"></div>
 	</body>
 </html>
 <script type="text/javascript">
@@ -59,6 +58,10 @@ $(function(){
 			console.log("获得焦点后的回调");
 			console.log($(this).handleValue());
 		});
+		// alert($(".pass")._isKeyboardInput());
+		// alert($(".pass")._isPasswordInput());
+		// alert($(".pass")._isNumberInput());
+		// $(".aa").keyBoardFocus();
 		/*
 		 * jquery元素失去焦点事件            		  keyBoardBlur
 		 * 1>> 没有有参数的时候,该元素失去焦点；
@@ -73,7 +76,7 @@ $(function(){
 		 * jquery元素内容改变事件            		  keyBoardBlur
 		 * 
 		 * 1>> 有且只有一个参数（function（a，b）{}），该元素内容改变时所执行的回调；
-		 * 	   该回调函数返回两个参数 a ：为当前输入的值；
+		 * 	   该回调函数返回两个参数	a ：为当前输入的值；
 		 * 					 		b : 为输入框中的值
 		 * 
 		 * */
@@ -82,6 +85,7 @@ $(function(){
 		});
 		$(".pass").keyValueChange(function(theinput,value){
 			console.log(theinput+"--"+value);
+			console.log($(this).handleValue());
 		})
 		/*
 		 * jquery元素出始值获取设置            		 inputValue
@@ -90,7 +94,7 @@ $(function(){
 		 * 2>> 有且只有一个参数时（string），则为该元素设置值；
 		 * 
 		 * */
-		// $(".moble").inputValue();
+		// $(".moble").handleValue();
 		
 		
 		 /*
@@ -130,30 +134,30 @@ $(function(){
 				console.log(theinput+"--"+value);
 		   });
 		   
-		//	keyBoard 事件	  
-		/*
-		 *	$.keyBoard.show();键盘呼出
-		 *  $.keyBoard.hide();键盘收起
-		 * */
+	//	keyBoard 事件	  
+	/*
+	 *	$.keyBoard.show();键盘呼出
+	 *  $.keyBoard.hide();键盘收起
+	 * */
+	// setTimeout(function(){
+		// $.keyBoard.show();
 		// setTimeout(function(){
-			// $.keyBoard.show();
-			// setTimeout(function(){
-				// $.keyBoard.hide();
-			// },1000)
-		// },2000)
-		
-		
-		
-		
-		//   动态添加输入框
-		$("#button").click(function(){
-			window.newInput({
-			 					 keyboardType   :    "number",
-			  					 placeholder    :    "请输入手机号",
-			  					 maxlength 	    :	 "12",
-			  					 thevalue 			:	 "100000.00"
-			                 },"body");
-		});
+			// $.keyBoard.hide();
+		// },1000)
+	// },2000)
+	
+	
+	
+	
+	//   动态添加输入框
+	$("#button").click(function(){
+		window.newInput({
+		 					 keyboardType   :    "number",
+		  					 placeholder    :    "请输入手机号",
+		  					 maxlength 	    :	 "12",
+	  					 	thevalue 		:	 "100000.00"
+		                 },"body");
+	});
 })
 </script>
 

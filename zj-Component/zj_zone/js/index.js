@@ -31,7 +31,7 @@ $(function(){
 		/***
 		 *导航栏1元素点击效果
 		 ***/
-		$(".nav-btn").click(function(){
+		$(".nav-btn").hover(function(){
 			$(".nav-btn").css({
 				"transform":"rotateX(0deg)"
 			});
